@@ -1,0 +1,50 @@
+{
+  "login_url": "https://cafm.seha.ae/ADH/applogin.aspx",
+  "session_check_xpath": "xpath=/html/body/form/div[2]/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr/td/a",
+  "excel_file": "",
+  "sheet_name": "Sheet1",
+  "data_entry_url": "YOUR_ACTUAL_DATA_ENTRY_PAGE_URL",
+  "form": {
+    "submit_button": "YOUR_FORM_SUBMIT_BUTTON_SELECTOR",
+    "fields": {
+      "ExcelColumnName1": "form_field_selector1",
+      "ExcelColumnName2": "form_field_selector2"
+    }
+  },
+  "monitoring": {
+    "enabled": false,
+    "enabled_on_startup": false,
+    "headless_monitoring": true,
+    "navigation_steps": [
+      {
+        "action": "goto",
+        "url": "https://cafm.seha.ae/ADH/apptop.aspx"
+      },
+      {
+        "action": "wait_for_selector",
+        "selector": "xpath=//a[contains(text(),'Site wise Work Orders')]",
+        "timeout": 15000
+      },
+      {
+        "action": "click",
+        "selector": "xpath=//a[contains(text(),'Site wise Work Orders')]",
+        "new_tab": true,
+        "url_contains_check": "WorkOrder"
+      }
+    ],
+    "monitoring_page_url": "",
+    "interval": 180,
+    "elements_to_check_change": [],
+    "data_extraction_rules": [],
+    "seen_data_ids_file": "data/seen_work_orders.json"
+  },
+  "notifications": {
+    "telegram_enabled": false,
+    "telegram_bot_token": "",
+    "telegram_chat_id": ""
+  },
+  "browser": {
+    "timeout": 60000,
+    "headless": false
+  }
+}
